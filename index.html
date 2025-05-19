@@ -150,8 +150,8 @@
     
     <script>
         // Initialize the map centered on Oslo with a lower zoom level to see the larger sectors
-        const osloCenter = [59.9169, 10.7276]; // Royal Palace coordinates
-        const map = L.map('map').setView(osloCenter, 13);
+        const osloCenter = [59.9776091, 10.7547771]; // Adjusted center point
+        const map = L.map('map').setView(osloCenter, 10);
         
         // Add OpenStreetMap tiles
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -242,7 +242,7 @@
                 .openPopup();
 
             // Update map view
-            map.setView([lat, lng], 13);
+            map.setView([lat, lng], 10);
 
             // Update URL
             saveSearchToURL(lat, lng, address);
@@ -440,7 +440,7 @@
                     .bindPopup(`Address: ${address || 'Searched Location'}`)
                     .openPopup();
 
-                map.setView([latNum, lngNum], 13);
+                map.setView([latNum, lngNum], 10);
                 
                 const sector = getSector(latNum, lngNum);
                 document.getElementById('result').textContent = `Location is in the ${sector} sector`;
@@ -486,7 +486,7 @@
                         .openPopup();
 
                     // Center map on the location
-                    map.setView([lat, lon], 13);
+                    map.setView([lat, lon], 10);
 
                     // Determine and display the sector
                     const sector = getSector(parseFloat(lat), parseFloat(lon));
